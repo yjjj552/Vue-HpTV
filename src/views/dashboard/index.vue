@@ -1,6 +1,13 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name: {{ name }}</div>
+    <div class="demo-image__placeholder">
+
+    <div class="block">
+      <span class="demonstration">默认</span>
+      <el-image :src="src"></el-image>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -13,7 +20,12 @@ export default {
     ...mapGetters([
       'name'
     ])
-  }
+  },
+    data(){
+      return{
+          src: '/src/icons/svg/aaa.png'
+      }
+    }
 }
 </script>
 
