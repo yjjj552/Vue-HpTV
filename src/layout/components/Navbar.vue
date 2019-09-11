@@ -11,7 +11,7 @@
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/live">
+          <router-link to="/example/room">
             <el-dropdown-item>
               申请直播
             </el-dropdown-item>

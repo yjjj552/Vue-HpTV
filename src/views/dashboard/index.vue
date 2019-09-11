@@ -23,7 +23,7 @@ export default {
   },
     data(){
       return{
-          src: '/src/icons/svg/aaa.png'
+
       }
     }
 }

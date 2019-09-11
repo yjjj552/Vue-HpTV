@@ -31,17 +31,12 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 export const constantRoutes = [
+
   {
     path: '/login',
     component: () => import('@/views/login/index'),
     hidden: true
   },
-  {
-    path: '/live',
-    component: () => import('@/views/live/index'),
-
-  },
-
   {
     path: '/404',
     component: () => import('@/views/404'),
@@ -78,6 +73,20 @@ export const constantRoutes = [
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         meta: { title: '教学视频', icon: 'tree' }
+      },
+      {
+        path: 'live/:id(\\d+)',
+        name: 'Live',
+        component: () => import('@/views/live/index'),
+        meta: { title: '直 播', noCache: true, activeMenu: '/example/table'},
+        hidden: true
+      },
+      {
+        path: 'room',
+        name: 'Room',
+        component: () => import('@/views/table/room/index'),
+        meta: { title: '主播信息', noCache: true, activeMenu: '/example/table'},
+        hidden: true
       }
     ]
   },
@@ -171,6 +180,7 @@ export const constantRoutes = [
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
+  mode: 'history',
   routes: constantRoutes
 })
 

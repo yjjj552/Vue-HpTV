@@ -22,3 +22,10 @@ export function logout() {
     method: 'post'
   })
 }
+
+export function rtmp() {
+  return request({
+    url:'/test',
+    method:'get'
+  })
+}

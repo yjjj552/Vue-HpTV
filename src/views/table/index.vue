@@ -2,19 +2,22 @@
   <div class="tabulation">
 
   <el-row :gutter="20"  id="el" >
-  <el-col :span="6" >
+  <el-col :span="5" >
     <div class="grid-content bg-purple" >
-
-      <div class="demo-image">
-        <div class="block" >
-          <el-image
-            style="width: 100px; height: 100px"
-            :src="url"
-            ></el-image>
+      <router-link :to="src">
+      <el-card :body-style="{ padding: '0px' }" id="card">
+        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image">
+        <div class="card" style="padding: 10px;">
+          <span class="title">asdasd</span>
+          <div class="bottom clearfix">
+            <time class="time"><svg-icon  icon-class="user"/>asda</time>
+            <span class="heat"><svg-icon  icon-class="fire"/>70万</span>
+          </div>
         </div>
-      </div>
-
+      </el-card>
+      </router-link>
    </div>
+
   </el-col>
   </el-row>
   </div>
@@ -41,30 +44,16 @@ export default {
   },
   data() {
     return {
-      list: null,
+      list: '',
       listLoading: true,
-      // playerOptions: {
-      //   height: '1000',
-      //   sources: [{
-      //     type: 'rtmp/flv',
-      //     src: 'rtmp://47.96.237.94:1935/live/mylive'
-      //   }],
-      //   techOrder: ['flash'],
-      //   muted: false, // 默认静音
-      //   preload: 'auto', // 视频预加载
-      //   autoplay: true,
-      //   controls: true,
-      //   notSupportedMessage: '此视频暂无法播放，请稍后再试',
-      //     poster: "https://surmon-china.github.io/vue-quill-editor/static/images/surmon-9.jpg"
-      // }
-        url: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-        fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
-        url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
+        currentDate: new Date(),
+        src:'/example/'
 
     }
   },
   created() {
     // this.fetchData()
+      this.src = this.src + 'live/12121'
   },
 
 
@@ -82,6 +71,7 @@ export default {
       mouseLeave: function () {
           this.active = '';
       },
+
 
   }
 }
@@ -111,7 +101,8 @@ export default {
     /*min-height: 36px;*/
     cursor: pointer;/*鼠标变成手指样式*/
     transition: all 0.2s;/*所有属性变化在0.6秒内执行动画*/
-    height:200px;
+    width: 292px;
+    height:263px;
     border-radius: 6px;
     text-align: center;
     margin-top: 20px;
@@ -122,12 +113,51 @@ export default {
   }
 
   .grid-content:hover{
-    transform: scale(1.2);/*鼠标放上之后元素变成1.4倍大小*/
+    transform: scale(1.1);/*鼠标放上之后元素变成1.4倍大小*/
   }
   .tabulation{
     margin: 0 20px 20px 20px;
   }
+  .time {
+    font-size: 13px;
+    float: left;
+    color: #999;
+  }
 
+  .heat{
+    float: right;
+    font-size: 12px;
+    color: #999;
+  }
 
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 100%;
+    height: 200px;
+    display: block;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+
+  .clearfix:after {
+    clear: both
+  }
+
+  .card{
+    height: auto;
+  }
 
 </style>
